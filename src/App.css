@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.pane {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.scene-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.split-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.split-container.vertical {
+  flex-direction: row;
+}
+
+.split-container.horizontal {
+  flex-direction: column;
+}
+
+.split {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.first, .second {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+.divider {
+  background-color: #666;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.divider.vertical {
+  width: 5px;
+  cursor: ew-resize;
+}
+
+.divider.horizontal {
+  height: 5px;
+  cursor: ns-resize;
+}
+
+.hover-area {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.split-btn, .join-btn {
+  padding: 8px 12px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.split-btn:hover, .join-btn:hover {
+  opacity: 1;
+  background-color: #555;
+}
+
+.vertical .join-btn {
+  transform: rotate(-90deg);
+}
+
+/* Ensure Three.js canvas fills its container */
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+/* Add these styles to your App.css */
+.join-options {
+  display: flex;
+  position: absolute;
+  z-index: 11;
+  background-color: #444;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.join-option-btn {
+  padding: 4px 8px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 11px;
+  transition: background-color 0.2s;
+}
+
+.join-option-btn:hover {
+  background-color: #666;
+}
+
+.vertical .join-options {
+  flex-direction: row;
+}
+
+.horizontal .join-options {
+  flex-direction: row;
+}
